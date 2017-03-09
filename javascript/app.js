@@ -38,7 +38,7 @@ $( document ).ready(function() {
 							"class": "gif",
 							"alt": "rating: " + imageRate
 						});
-						var	rateDiv = $("<p id=' imageRate'>");
+						var	rateDiv = $("<p id= 'imageRate'>");
 						rateDiv.text (image.attr("alt"));
 						poochesDiv.append(image);
 						poochesDiv.append(rateDiv);
