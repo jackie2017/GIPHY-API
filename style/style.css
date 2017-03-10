@@ -1,0 +1,53 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+      font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+      font-size:  20px
+      color: #ede8e8;
+      line-height: 40px;  
+}
+
+/*h1{
+    font-size: 18px;
+  } */
+
+}
+img{
+  width: 70%;
+  height: 70%;
+}
+.navbar-header h1 {
+  color: #f44242;
+  font-weight: bold;
+}
+#imgRate{
+  width: 300px
+  color:beige;
+}
+.gif {
+  width: 200px;
+  height:200px;
+  margin: 10px;
+}
+.paste{
+  background-color: rgba(245, 245, 245, 0.4);
+  height: auto;
+  overflow:auto;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: #ede8e8;
+}
+
+button.active {
+  background: #ede8e8;
+  margin:10px;
+}
+
+#imageContainerForRating{
+  float: left;
+
+}

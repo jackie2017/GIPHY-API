@@ -3,28 +3,47 @@ $( document ).ready(function() {
 	var newPouch = "";
 
 	//button creation for the div for the array
-	renderButtons();
+	
 	function renderButton(){
-		for(var i = 0; i < poochButtons, length; i++) {
+		for(var i = 0; i < poochButtons.length; i++) {
+
 						var newButton = $("<button>");
 						newButton.text(poochButtons[i]);
 						newButton.addClass("theButton");
 						newButton.attr("value", poochButtons[i]);
-						$("#poochButtons").append(newButton);
+						$("#pooches").append(newButton);
 						}
 	}
+
+	renderButton();
+
+
+	$("#addPooch").on('click', function (event) {
+		$("#pooches").empty();
+		event.preventDefault();
+		var userVal = $("#poochInput").val();
+		poochButtons.push(userVal);
+
+		console.log(poochButtons);
+		renderButton();
+
+	});
 	// will check if form has empty space
-	$("#addPooch").on('click', function(event){
+	$("#pooches").on('click', "button", function(event){
+			$("#poochButton").empty();
 			event.preventDefault();
-			newPouch = $("#poochInput").val().trim();
-			var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +poochSearch + "&api_key=dc6zaTOxFJmzC &limit=10";
+			newPouch = $(this).attr('value').trim();
+			var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + newPouch + "&api_key=dc6zaTOxFJmzC &limit=10";
 			$.ajax({
 			url: queryURL,
 			method: 'GET'})
 			.done(function (response) {
 				/* ajax is making the call and getting the image and the below var is
 				getting the response and creating the attribute*/
-					for (var i = 0; i < response.data.length; i++) }
+
+
+					for (var i = 0; i < response.data.length; i++) {
+
 						var poochAnimate = response.data[i].images.fixed_height.url;
 						var poochStill = response.data[i].images.downsized_still.url;
 						var imageRate = response.data[i].rating;
@@ -42,7 +61,7 @@ $( document ).ready(function() {
 						rateDiv.text (image.attr("alt"));
 						poochesDiv.append(image);
 						poochesDiv.append(rateDiv);
-						$("#pooches").append(poochesDiv);
+						$("#poochButton").append(poochesDiv);
 					}
 
 					$(".gif").on("click", function(){
