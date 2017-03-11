@@ -7,12 +7,12 @@ $( document ).ready(function() {
 	function renderButton(){
 		for(var i = 0; i < poochButtons.length; i++) {
 
-						var newButton = $("<button>");
-						newButton.text(poochButtons[i]);
-						newButton.addClass("theButton");
-						newButton.attr("value", poochButtons[i]);
-						$("#pooches").append(newButton);
-						}
+			var newButton = $("<button>");
+			newButton.text(poochButtons[i]);
+			newButton.addClass("theButton");
+			newButton.attr("value", poochButtons[i]);
+			$("#pooches").append(newButton);
+		}
 	}
 
 	renderButton();
